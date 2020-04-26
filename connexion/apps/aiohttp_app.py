@@ -20,7 +20,7 @@ class AioHttpApp(AbstractApp):
         self._api_added = False
 
     def create_app(self):
-        return web.Application()
+        return web.Application(client_max_size=2**31)
 
     def get_root_path(self):
         mod = sys.modules.get(self.import_name)
